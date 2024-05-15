@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>OLB Presentatie</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides" >
+				<section data-background-color="lightblue">
+					<h1>Mijn verdere studies</h1>
+					<p>Wiebe Cloet</p>
+				</section>
+				<section data-background-color="lightblue">
+					<h2>Inhoudstafel</h2>
+					<ul>
+						<li>Studies middelbaar</li>
+						<li>Studies hoger</li>
+				</section>
+				<section data-background-color="lightblue">
+					<h2>Studies middelbaar</h2>
+					<p class="fragment">1-2: LO-TO</p>
+				    <p class="fragment">3-5: Wetenschappen wiskunde</p>
+					<p class="fragment">5-6: Humane wetenschappen</p>
+				</section>
+				<section data-background-color="lightblue">
+					<h2>Studies hoger</h2>
+					<p class="fragment">MCT howest kortrijk</p>
+					<p class="fragment">TI howest brugge</p>
+				</section>
+				<section data-background-color="lightblue">
+					<h2>MCT</h2>
+				</section>
+				<section data-background-color="lightblue">
+					<h2>Eerste drie semesters</h2>
+					<img src="assets/First3Sem.png" alt="mct eerste 3 semesters" width="550" height="550">
+				</section>
+				<section data-background-color="lightblue">
+					<h2>Laatste drie semesters</h2>
+					<img src="assets/Last3Sem.png" alt="mct eerste 3 semesters" width="550" height="550"">
+				</section>
+				<section data-background-color="lightblue">
+					<h2>Team project</h2>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/wqCBZaaTyvc" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+				</section>
+				<section data-background-color="lightblue">
+					<h2>Industry project</h2>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/IIF8k1iQgKU" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+				</section>
+				<section data-background-color="lightblue">
+					<h2>Research Project</h2>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/IsPZr0lXJTw" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+				</section>
+				<section data-background-color="lightblue">
+					<h2>Stage project</h2>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/-zuL98sHPFE" frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe>
+				</section>
+				<section data-background-color="lightblue">
+					<h2>TI</h2>
+				</section>
+				<section data-background-color="lightblue">
+					<h2>Voorlopige ervaring TI</h2>
+					<ul>
+						<li>Veel vrijstelling</li>
+						<li>Veel praktijk</li>
+						<li>Veel projecten</li>
+						<li>Goed voor verdere aanvulling</li>
+						<li>Vrij verchillend van MCT</li>
+				</section>
+				<section data-background-color="lightblue">
+					<section>
+						<h2> Example:  guess the number</h2>
+						<input id="guessInput" type="number" min="1" max="10">
+						<button id="guessButton">Guess</button>
+						<p id="guessResult"></p>
+					</section>
+					<section>
+						<h2>The code</h2>
+						<img src="assets/CodeNumberGame.png" alt="Code Number Game">
+					</section>
+				</section>
+				<section data-background-color="lightblue">
+					<section>
+						<h2>Rock, Paper, Scissors Game</h2>
+						<p>Choose Rock, Paper, or Scissors:</p>
+						<button id="rock">Rock</button>
+						<button id="paper">Paper</button>
+						<button id="scissors">Scissors</button>
+						<p id="gameResult"></p>
+					</section>
+					<section>
+						<h2>The code</h2>
+						<img src="assets/CodeNumberGame.png" alt="Code Number Game">
+					</section>
+				</section>
+				<section data-background-color="lightblue">
+					<h2>Vragen?</h2>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+
+		<script>
+		document.getElementById('guessButton').addEventListener('click', function() {
+			const randomNumber = Math.floor(Math.random() * 10) + 1;
+			const userGuess = document.getElementById('guessInput').value;
+
+			if(userGuess < 1 || userGuess > 10) {
+				document.getElementById('guessResult').textContent = 'Please enter a number between 1 and 10.';
+			} else if(userGuess == randomNumber) {
+				document.getElementById('guessResult').textContent = 'Congratulations! You guessed the number.';
+			} else {
+				document.getElementById('guessResult').textContent = 'Sorry, you guessed wrong. The number was ' + randomNumber + '.';
+			}
+		});
+
+		const buttons = document.querySelectorAll('#rock, #paper, #scissors');
+
+		buttons.forEach(button => {
+			button.addEventListener('click', function() {
+				let result = Math.random() < 0.5 ? 'You win!' : 'You lose!';
+				document.getElementById('gameResult').textContent = result;
+			});
+		});
+			
+		</script>
+	</body>
+</html>
+
